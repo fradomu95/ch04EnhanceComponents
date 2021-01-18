@@ -1,0 +1,53 @@
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Team</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- HECHO -->
+    <!-- Ejercicio: Aplicar la clase table-primary sobre la fila seleccionada (heroe seleccionado)-->
+    <!-- Crear una propiedad de salida en el componente para enviar a su padre el heroe seleccionado -->
+
+    <!-- Pagina 5 - Iterar por los datos -->
+    <!-- Pagina 6 - -->
+    <!-- Pagina 7 - trackBy-->
+    <tr *ngFor="let hero of heroes; index as i; trackBy: trackByHeroes" [ngClass]="{'table-primary': hero === heroSelected}" >
+      <td scope="row" class="table-primary">{{ i+1 }}</td>
+      <td>{{ hero.name }}</td>
+      <td [ngSwitch]="hero.team">
+        <span *ngSwitchCase="'villains'" class="badge rounded-pill bg-warning text-dark">Villains</span>
+        <span *ngSwitchCase="'avengers'" class="badge rounded-pill bg-info text-dark">Avenger</span>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="selectHero(hero)">Details</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<!-- HECHO -->
+<!-- ejercicio: Poner este tipo de badge segun ngSwitch para indicar el tipo de heroe -->
+<!-- <span class="badge rounded-pill bg-warning text-dark">Villain</span>
+<span class="badge rounded-pill bg-info text-dark">Avenger</span> -->
+
+<!--
+<div [ngSwitch]="hero.team">
+  <div *ngSwitchCase="'avengers'">{{hero.name}} is avenger</
+  div>
+  <div *ngSwitchCase="'villains'">{{hero.name}} is villain</
+  div>
+  <div *ngSwitchDefault>{{hero.name}}</div>
+</div>
+-->
+
+<!-- Ejercicio -->
+<!-- Al hacer click en la columna Team ,
+  crear un filtro (pipe) para ordenarlos por tipo de equipo
+-->
