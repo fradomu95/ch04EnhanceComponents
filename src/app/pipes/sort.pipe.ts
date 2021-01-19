@@ -7,6 +7,7 @@ import { Hero } from '../hero.model';
 export class SortPipe implements PipeTransform {
 
 
+  // HECHO EN EL FILTRO SORT-BY
   // Ejercicio: Crear un filtro para ordenar por nombre ascendente o descendente
   // uso del parametro 'asc' para ascendente o por defecto
   // uso del parametro 'desc' para descendente

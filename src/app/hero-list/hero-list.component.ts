@@ -11,16 +11,17 @@ export class HeroListComponent implements OnInit {
 
   heroes: Hero[] = [];
   heroSelected: Hero;
+  order: string;
 
   @Output()
   selectedHero: EventEmitter<Hero> = new EventEmitter();
 
   constructor() {
     this.heroes = heroes;
-   }
-
+  }
+  
   ngOnInit(): void {
-
+    
   }
 
   // metodo sobre el que actua la deteccion de cambios ( si cambia el valor de un heroe por su id )
@@ -33,4 +34,13 @@ export class HeroListComponent implements OnInit {
     this.heroSelected = heroSelected;
   }
 
+  changeOrder(): void {
+    if (this.order === '') {
+      this.order = 'asc';
+    } else if (this.order === 'asc') {
+      this.order = 'desc';
+    } else {
+      this.order = 'asc';
+    }
+  }
 }

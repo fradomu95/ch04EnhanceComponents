@@ -3,21 +3,22 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Team</th>
+      <th scope="col">Name <i *ngIf="!order" class="fas fa-caret-down"></i></th>
+      <th scope="col" (click)="changeOrder()">Team <i *ngIf="order" class="fas" [ngClass]="order === 'asc' ? 'fa-caret-down' : 'fa-caret-up'" ></i></th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
 
-    <!-- HECHO -->
+    <!-- HECHO CON NG CLASS EN EL SIGUIENTE TR -->
     <!-- Ejercicio: Aplicar la clase table-primary sobre la fila seleccionada (heroe seleccionado)-->
     <!-- Crear una propiedad de salida en el componente para enviar a su padre el heroe seleccionado -->
 
     <!-- Pagina 5 - Iterar por los datos -->
     <!-- Pagina 6 - -->
     <!-- Pagina 7 - trackBy-->
-    <tr *ngFor="let hero of heroes; index as i; trackBy: trackByHeroes" [ngClass]="{'table-primary': hero === heroSelected}" >
+
+    <tr *ngFor="let hero of heroes | sortBy:'name':'asc' | sortBy:'team':order; index as i; trackBy: trackByHeroes" [ngClass]="{'table-primary': hero === heroSelected}" >
       <td scope="row" class="table-primary">{{ i+1 }}</td>
       <td>{{ hero.name }}</td>
       <td [ngSwitch]="hero.team">
@@ -32,8 +33,13 @@
   </tbody>
 </table>
 
-<!-- HECHO -->
-<!-- ejercicio: Poner este tipo de badge segun ngSwitch para indicar el tipo de heroe -->
+<ng-container *ngIf="!heroes.length">
+  <h1>No hay heroes</h1>
+</ng-container>
+
+
+<!-- HECHO EN EL CODIGO ANTERIOR DE HTML DONDE SE INDICA EL NGSWITCH-->
+<!-- ejercicio: Poner este tipo de badge segun ngSwitch para indicar el tipo de heroe --> 
 <!-- <span class="badge rounded-pill bg-warning text-dark">Villain</span>
 <span class="badge rounded-pill bg-info text-dark">Avenger</span> -->
 
@@ -47,6 +53,7 @@
 </div>
 -->
 
+<!-- HECHO EN LA FILA DONDE SE INDICA LA COLUMNA TEAM SE HA AÑADIDO UN EVENTO BOTON DONDE SE CAMBIA EL ORDEN Y SE APLICA EL SORT EN EL BUCLE CON LA PIPE SORTBY-->
 <!-- Ejercicio -->
 <!-- Al hacer click en la columna Team ,
   crear un filtro (pipe) para ordenarlos por tipo de equipo
