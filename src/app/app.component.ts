@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
     this.heroes = heroes;
     this.loading = true;
     
-    
+    // Time out para terminar la carga
     setTimeout(() => {
       this.loading = false;
-    },3000);
+    },3000); // 7000 si se quiere poner a 7 segundos
   }
   
   selectHero(hero: Hero) {

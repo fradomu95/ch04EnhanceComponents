@@ -9,7 +9,7 @@ export class SortByPipe implements PipeTransform {
   transform(value: Hero[], arg: string, order: string): Hero[] {
 
 
-    // HE CREADO UN ARRAY AUXILIAR PARA CUANDO SE ORDENE LOS DATOS NO ME ALTERE EL ARRAY ORIGINAL, YA QUE DE OTRA FORMA SI ORDENABA EN UNA TABLA SE ME ORDENABA EN TODAS
+    // HE CREADO UN ARRAY AUXILIAR PARA CUANDO SE ORDENE LOS DATOS NO ME ALTERE EL ARRAY ORIGINAL, YA QUE DE OTRA FORMA SI ORDENABA EN UNA TABLA SE ME ORDENABA EN TODAS Y ADEMAS EN LOS DATOS ORIGINALES
     let aux: Hero[] = [];
     value.forEach(val => aux.push(Object.assign({}, val)));
 

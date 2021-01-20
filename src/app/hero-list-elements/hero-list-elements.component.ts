@@ -19,10 +19,16 @@ export class HeroListElementsComponent implements OnInit {
     this.type = "table";
   }
 
+  /**
+   * Metodo para cambiar la visualizacion a modo cartas
+   */
   mostrarCartas() {
     this.type = "card";
   }
 
+  /**
+   * Metodo para cambiar la visualizacion a modo tabla
+   */
   mostrarTabla() {
     this.type = "table"
   }
