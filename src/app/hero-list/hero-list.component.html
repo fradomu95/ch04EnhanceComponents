@@ -18,7 +18,7 @@
     <!-- Pagina 6 - -->
     <!-- Pagina 7 - trackBy-->
 
-    <tr *ngFor="let hero of heroes | sortBy:'name':'asc' | sortBy:'team':order; index as i; trackBy: trackByHeroes" [ngClass]="{'table-primary': hero === heroSelected}" >
+    <tr *ngFor="let hero of getHeroes() | sortBy:'name':'asc' | sortBy:'team':order; index as i; trackBy: trackByHeroes" [ngClass]="{'table-primary': compararHero(hero, heroSelected)}" >
       <td scope="row" class="table-primary">{{ i+1 }}</td>
       <td>{{ hero.name }}</td>
       <td [ngSwitch]="hero.team">
@@ -36,6 +36,8 @@
 <ng-container *ngIf="!heroes.length">
   <h1>No hay heroes</h1>
 </ng-container>
+
+
 
 
 <!-- HECHO EN EL CODIGO ANTERIOR DE HTML DONDE SE INDICA EL NGSWITCH-->

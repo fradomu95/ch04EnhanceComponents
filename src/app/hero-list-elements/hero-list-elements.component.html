@@ -1,0 +1,38 @@
+<div class="border p-3">
+    <button class="btn btn-primary m-2" (click)="mostrarCartas()">Card</button>
+    <button class="btn btn-primary m-2" (click)="mostrarTabla()">Table</button>
+    
+    <table *ngIf="type == 'table' else card" class="table">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let hero of data; index as i">
+                <td scope="row" class="table-primary">{{ i+1 }}</td>
+                <td>{{ hero.name }}</td>
+                <td>
+                    <p>{{ hero.team }}</p>
+                </td>
+              </tr>
+          </tbody>
+    </table>
+    
+    <ng-template #card>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-xl-2" *ngFor="let hero of data; index as i">
+                <div class="card mb-3" >
+                    <div class="card-body">
+                        <h2>{{ i+1 }}#</h2>
+                        <h3>{{ hero.name }}</h3>
+                        <p>Equipo: {{ hero.team }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+

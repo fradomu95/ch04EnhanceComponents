@@ -7,6 +7,12 @@ import { Hero } from '../hero.model';
 export class SortByPipe implements PipeTransform {
 
   transform(value: Hero[], arg: string, order: string): Hero[] {
+
+
+    // HE CREADO UN ARRAY AUXILIAR PARA CUANDO SE ORDENE LOS DATOS NO ME ALTERE EL ARRAY ORIGINAL, YA QUE DE OTRA FORMA SI ORDENABA EN UNA TABLA SE ME ORDENABA EN TODAS
+    let aux: Hero[] = [];
+    value.forEach(val => aux.push(Object.assign({}, val)));
+
     if (!value || order === '' || !order) { 
       return value; 
     }
@@ -16,7 +22,7 @@ export class SortByPipe implements PipeTransform {
     }
 
     if (order === 'asc') {
-      return value.sort((a:Hero , b:Hero) => {
+      return aux.sort((a:Hero , b:Hero) => {
 
         if(a[arg] > b[arg]) {
           return 1;
@@ -27,7 +33,7 @@ export class SortByPipe implements PipeTransform {
         return 0;
       });
     } else if (order === 'desc') {
-      return value.sort((a:Hero , b:Hero) => {
+      return aux.sort((a:Hero , b:Hero) => {
 
         if(a[arg] < b[arg]) {
           return 1;

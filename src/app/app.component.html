@@ -21,6 +21,14 @@
     </div>
 
   </div>
+
+  <div class="row">
+    <ng-template #cargaCompleta>
+      <app-hero-list-elements [data]="heroes"></app-hero-list-elements>
+    </ng-template>
+    
+    <app-loader *ngIf="loading else cargaCompleta"></app-loader>
+  </div>
 </div>
 
 <!--

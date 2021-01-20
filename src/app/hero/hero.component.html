@@ -9,11 +9,12 @@
   
   <!-- Pagina 4 -->
   <!-- <p *ngIf="name === 'Boothstomper'; else noHero" >{{ name }} hero works</p> -->
-
-  <div *ngIf="hero; else noHero">
+<div class="card">
+  <div class="card-body" *ngIf="hero; else noHero">
     <h3>{{ hero.name }}</h3>
     <p>Equipo: {{ hero.team }}</p>
   </div>
+</div>
   
   <ng-template #noHero>
     <p>Hero was not found</p>
@@ -27,6 +28,7 @@
   
   
   
+    HECHO
   // ejercicio:
   // Crear un componente llamado loader , que muestre un icono animado que perm_device_information
   // que esta cargando datos, dependiendo de una variable llamada loading
@@ -39,7 +41,7 @@
   // simulamos una peticion asincrona a servidor.
   // Crear esto con un setTimer o setTimeOut
   
-  
+    HECHO
   // Ejercicio:
   // Crear un componente llamado HeroListElements que tendra dentro una lista de heroes que recibe como parametro de entrada
   // en una propiedad data ( propiedad Input)

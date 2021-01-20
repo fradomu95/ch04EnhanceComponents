@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { heroes } from './hero.data';
 import { Hero } from './hero.model';
 
 @Component({
@@ -8,11 +9,22 @@ import { Hero } from './hero.model';
 })
 export class AppComponent implements OnInit {
   selectedHero: Hero;
+  heroes: Hero[];
+  loading: boolean;
 
   ngOnInit() {
+    this.heroes = heroes;
+    this.loading = true;
+    
+    
+    setTimeout(() => {
+      this.loading = false;
+    },3000);
   }
-
+  
   selectHero(hero: Hero) {
     this.selectedHero = hero;
   }
+
+
 }

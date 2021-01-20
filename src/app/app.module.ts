@@ -10,6 +10,8 @@ import { CopyrightDirective } from './directives/directives/copyright.directive'
 import { PipesUseComponent } from './pipes-use/pipes-use.component';
 import { NumericDirective } from './directives/numeric.directive';
 import { SortByPipe } from './pipes/sort-by.pipe';
+import { LoaderComponent } from './loader/loader.component';
+import { HeroListElementsComponent } from './hero-list-elements/hero-list-elements.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SortByPipe } from './pipes/sort-by.pipe';
     CopyrightDirective,
     PipesUseComponent,
     NumericDirective,
-    SortByPipe
+    SortByPipe,
+    LoaderComponent,
+    HeroListElementsComponent
   ],
   imports: [
     BrowserModule,
